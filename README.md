@@ -5,6 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
+heroku : https://eventbride17022020.herokuapp.com/
+
 * Ruby version
 
 * System dependencies
