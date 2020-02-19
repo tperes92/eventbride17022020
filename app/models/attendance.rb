@@ -1,14 +1,15 @@
-require 'attendance_mailer'
-
 class Attendance < ApplicationRecord
-after_create :welcome_send
-
 	belongs_to :user
 	belongs_to :event
-	validates :stripe_customer_id, uniqueness: true
+	after_create :new_attendance_send
 
-	def welcome_send
-	    AttendanceMailer.welcome_email(self).deliver_now
+
+	def admin
+		event.admin
 	end
 
+	private
+  def new_attendance_send
+    UserMailer.new_attendance_email(self).deliver_now
+  end
 end

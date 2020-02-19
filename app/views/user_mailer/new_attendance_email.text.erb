@@ -1,0 +1,8 @@
+Salut <%= @attendance.admin.first_name %>, une nouvelle participation à ton evenement <%= @attendance.event.title %> a été enregistrée !
+
+C'est la <%= @attendance.event.users.count %><%= @attendance.event.users.count == 1 ? "ière" : @attendance.event.users.count == 2 ? "nde" : "ème" %> participation à cet évènement !
+
+Pour accéder à la page de l'évènement : <%= @url %>
+
+A bientot
+Merci de toute l'équipe PAC EventBrite

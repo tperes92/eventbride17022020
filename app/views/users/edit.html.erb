@@ -1,0 +1,29 @@
+<div class="container mt-10rem">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="text-center">Modifier votre profil</h2>
+
+      <%= form_for @user do |f| %>
+        <div class="form-group mt-5">
+          <div class="form-row">
+            <div class="col-md-6">
+              <%= f.label :prénom %><br />
+              <%= f.text_field :first_name, autofocus: true, class:"form-control", required: true %>
+            </div>
+
+            <div class="col-md-6">
+              <%= f.label :nom %><br />
+              <%= f.text_field :last_name, autofocus: true,  class:"form-control", required: true  %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %><br />
+          <%= f.text_area :description, autofocus: true, class:"form-control", required:"true" %>
+        </div>
+        <%= f.submit "Confirmer les changements", class:" mt-5 btn btn-primary btn-block" %>
+      <% end %>
+      <%= link_to "Retour au profil", user_path(@user.id) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Salut <%= @attendance.admin.first_name %>, une nouvelle participation à ton evenement "<em><%= @attendance.event.title %></em>" a été enregistrée !</h1>
+      <p>
+        C'est la <%= @attendance.event.users.count %><%= @attendance.event.users.count == 1 ? "ière" : @attendance.event.users.count == 2 ? "nde" : "ème" %> participation à cet évènement !
+      </p>
+      <p>
+        Pour accéder à la page de l'évènement
+      </p><br>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="center" style="border-radius: 3px;"><a href="<%= @url %>" target="_blank" style="font-size: 16px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 3px; padding: 12px 18px; border: 1px solid #78C2AD;;background-color: #78C2AD;;">CLIQUE SALOPE CLIQUE &rarr;</a></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table><br>
+      <p>A bientot</p>
+      <p>Merci de toute l'équipe PAC EventBrite</p>
+    </div>
+  </body>
+</html>

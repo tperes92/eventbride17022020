@@ -1,0 +1,39 @@
+<div class="container mt-10rem">
+<h1 class="text-center"><%= @user.first_name%> <%=@user.last_name %> </h1>
+  <div class="row mt-5">
+    <div class="col-md-4 text-center">
+      <h2>Votre profil</h2>
+      <div class="card border-primary mt-3 mb-3">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Prénom</strong>: <%=@user.first_name %> </li>
+          <li class="list-group-item"><strong>Nom</strong>: <%=@user.last_name %> </li>
+          <li class="list-group-item"><strong>Description</strong>: <%=@user.description %></li>
+          <li class="list-group-item"><strong>Email</strong>: <%=@user.email %> </li>
+        </ul>
+      </div>
+      <p><%= link_to "Editer votre profil", edit_user_path(@user.id), class: "btn btn-primary" %></p>
+      <p><%= link_to "Editer votre compte", edit_user_registration_path(@user.id), class: "btn btn-light" %></p>
+    </div>
+    <div class="col-md-8 text-center"> 
+      <h2>Vos évènements</h2>
+        <% if @user.admin_events.count == 0 %> 
+          <strong class="mt-3 mb-3">Vous n'avez pas encore crée d'évènement </strong>
+        <% else %>
+          <strong>Vous avez crée <%= @user.admin_events.count %> événement<%= @user.admin_events.count > 1 ? "s" : "" %></strong>
+          <p>Liste des évènements que vous organisez:</p>
+          <div class="card border-primary  mt-3 mb-3">
+            <ul class="list-group list-group-flush">
+              <% @user.admin_events.each do |e| %>
+                <li class="list-group-item"><%= link_to e.title, event_path(e.id) %> à <em><%= e.location %></em>
+
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %> 
+        <p><%= link_to "Créer un évènement", new_event_path, class: "btn btn-primary" %></p> 
+      </div>
+    </div>     
+  </div>     
+</div>
+
